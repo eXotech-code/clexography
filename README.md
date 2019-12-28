@@ -4,9 +4,11 @@ Clexography is a tool used to convert image files to and from text.
 It can be used for example as a way of sending images over IRC chat or anywhere else, where you cannot send images normally.
 
 ### Branches
-[master](https://github.com/eXotech-code/clexography/tree/master) -  main production branch
+[master](https://github.com/eXotech-code/clexography/tree/master) -  Main production branch
 
-[feature](#) - test feature branch
+[testing](https://github.com/eXotech-code/clexography/tree/testing) - This branch always lags behind master a little bit. It contains finished code not yet ready to merge with master (merges occur every week)
+
+[feature](#) - Branch with new, untested features (not yet implemented)
 
 
 ### Usage
@@ -25,4 +27,4 @@ Run by typing in the console
 
 ##### You can do whatever you want with this code.
 
-If you want, you can upstream your changes in feature branch :)
+If you want, you can upstream your changes in feature branch (not yet implemented) :)
