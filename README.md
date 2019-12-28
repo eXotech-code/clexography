@@ -20,7 +20,7 @@ There is no need for any additional dependencies.
 ###### Python3 intallation
 [It's right here!](https://wiki.python.org/moin/BeginnersGuide/Download)
 
-###### Running
+#### Running
 Run by typing in the console
 
 `python3 clexography.py`
