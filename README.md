@@ -8,7 +8,7 @@ It can be used for example as a way of sending images over IRC chat or anywhere 
 
 [testing](https://github.com/eXotech-code/clexography/tree/testing) - This branch always lags behind master a little bit. It contains finished code not yet ready to merge with master (merges occur every week)
 
-[feature](#) - Branch with new, untested features (not yet implemented)
+[feature](https://github.com/eXotech-code/clexography/tree/feature) - Branch with new, untested features
 
 
 ### Usage
@@ -27,4 +27,4 @@ Run by typing in the console
 
 ##### You can do whatever you want with this code.
 
-If you want, you can upstream your changes in feature branch (not yet implemented) :)
+If you want, you can upstream your changes in feature branch :)
