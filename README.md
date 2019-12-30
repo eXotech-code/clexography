@@ -23,7 +23,7 @@ There is no need for any additional dependencies.
 #### Running
 Run by typing in the console
 
-`python3 clexography.py`
+`path-to-clexography-repo/clexography.py`
 
 ##### You can do whatever you want with this code.
 
