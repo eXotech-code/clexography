@@ -21,4 +21,4 @@ def textImage():
         imageFile.close()
             
     print('Operation completed successfully!')
-    print('File saved in ' + dirPath + '/decoded-image.png')
+    print('File saved in ' + dirPath)
