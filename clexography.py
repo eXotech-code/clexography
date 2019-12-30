@@ -15,8 +15,7 @@ def main():
     elif (selectAction == 'exit'):
         print('Exiting...')
     else:
-        print('ERROR: function "' + (selectAction) + '" is not a valid function. Please run and try again!')
-        rerun = input('Do you want to rerun the program? (Y/n): ').lower()
+        rerun = input('ERROR: function"' + selectAction + '"is not a valid function. Do you want to run again? (Y/n): ').lower()
         if rerun in ['y', 'yes']:
             main()
         else:
