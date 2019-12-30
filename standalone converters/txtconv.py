@@ -23,3 +23,5 @@ def textImage():
             
     print('Operation completed successfully!')
     print('File saved in ' + dirPath + '/decoded-image.png')
+
+textImage()

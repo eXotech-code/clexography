@@ -27,3 +27,5 @@ def imageText():
             imageText()
         else:
             print('Exiting...')
+
+imageText()
