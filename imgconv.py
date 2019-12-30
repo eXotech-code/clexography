@@ -12,17 +12,20 @@ def imageText():
         imagestr = base64.b64encode(imageFile.read())   # decodes image raw data into string
         print(imagestr)                                 # prints the text from image data
     # saving as text file
-    def imgAction():
-        selectAction = input('Do you want to save this text as .txt file? (Y/n): ').lower()
+    confirm = input('Do you want to save this as a text file? (Y/n): ').lower()
+    if confirm in ['y', 'yes']:
+        savePath = input('Input the name of the new text file (recomended .txt): ')
+        text_file = open(savePath, 'wb')                            # opens the specified file name for editing
+        text_file.write(imagestr)                                   # inserts image string to the text file
+        text_file.close()
+        print('Text file has been saved as: ' + (savePath))         # prints saved file's name
+    elif confirm in ['n', 'no']:
+        print('Text file has not been saved.')
+    else:
+        rerun = input('ERROR: function "' + (confirm) + '" is not a valid function. Do you want to run again? (Y/n): ').lower()
         if rerun in ['y', 'yes']:
-            savePath = input('Input the name of the new text file: ') + '.txt'
-            text_file = open(savePath, 'wb')                            # opens the specified file name for editing
-            n = text_file.write(imagestr)                               # inserts image string to the text file
-            text_file.close()
-            print('Text file has been saved as: ' + (savePath))         # prints saved file's name
-        elif rerun in ['n', 'no']:
-            print('Text file has not been saved.')
+            imageText()
         else:
-            print('ERROR: function "' + (selectAction) + '" is not a valid function. Please run and try again!')
-            imgAction()
-    imgAction()
+            print('Exiting...')
+
+imageText()

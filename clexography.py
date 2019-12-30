@@ -8,12 +8,11 @@ def main():
     # select img >> txt or txt >> img
     print('Welcome to Clexography!')
     selectAction = input('Do you want to encode (image >> text) or decode (text >> image)? (e/d): ').lower()
-
     if selectAction in ['e', 'encode']:
         imgconv.imageText()
     elif selectAction in ['d', 'decode']:
         txtconv.textImage()
-    elif selectAction == 'exit':
+    elif (selectAction == 'exit'):
         print('Exiting...')
     else:
         print('ERROR: function "' + (selectAction) + '" is not a valid function. Please run and try again!')
