@@ -1,24 +1,23 @@
 #!/usr/bin/env python3
 
-# imports
-import imgconv
-import txtconv
+import argparse
+import clexEnc
+import clexDec
+import clexStr
 
-def main():
-    # select img >> txt or txt >> img
-    print('Welcome to Clexography!')
-    selectAction = input('Do you want to encode (image >> text) or decode (text >> image)? (e/d): ').lower()
-    if selectAction in ['e', 'encode']:
-        imgconv.imageText()
-    elif selectAction in ['d', 'decode']:
-        txtconv.textImage()
-    elif (selectAction == 'exit'):
-        print('Exiting...')
-    else:
-        rerun = input('ERROR: function"' + selectAction + '"is not a valid function. Do you want to run again? (Y/n): ').lower()
-        if rerun in ['y', 'yes']:
-            main()
-        else:
-            print('Exiting...')
+parser = argparse.ArgumentParser(prog=clexStr.name, usage=clexStr.usage)
+parser.add_argument("-v", "--version", help="show %(prog)s version", action="store_true")
+actionGroup = parser.add_mutually_exclusive_group()
+actionGroup.add_argument("-e", "--encode", help="encode image", nargs=2)
+actionGroup.add_argument("-d", "--decode", help="decode image", nargs=2)
 
-main()
+args = parser.parse_args()
+
+if args.version:
+    print(clexStr.version)
+elif args.encode:
+    readFile = args.encode[0]
+    writeFile = args.encode[1]
+    clexEnc.encode()
+elif args.decode:
+    clexDec.decode()
