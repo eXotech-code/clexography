@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 import argparse
 import clexEnc
 import clexDec
@@ -9,7 +10,14 @@ name = 'clexography'
 usage = name+' '+' '+version
 
 #command line arguments
-parser = argparse.ArgumentParser(prog=name, usage=usage)
+
+class argParser(argparse.ArgumentParser):
+    def parseError(self, message):
+        sys.stderr.write('ERROR: %s\n' % message)
+        self.print_help()
+        sys.exit
+
+parser = argParser()
 parser.add_argument("-v", "--version", help="show %(prog)s version", action="store_true")
 actionGroup = parser.add_mutually_exclusive_group()
 actionGroup.add_argument("-e", "--encode", help="encode image", nargs=2)    #encode argument takes 2 actions (read write)
@@ -27,3 +35,6 @@ elif args.decode:
     readFile = args.decode[0]
     writeFile = args.decode[1]
     clexDec.clexDec(readFile, writeFile)
+if len(sys.argv)==1:
+    parser.print_help(sys.stderr)
+    sys.exit()
