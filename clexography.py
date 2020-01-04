@@ -2,8 +2,8 @@
 
 import sys
 import argparse
-import clexEnc
-import clexDec
+import encode
+import decode
 
 version = '2.0'
 name = 'clexography'
@@ -30,11 +30,11 @@ if args.version:
 elif args.encode:
     readFile = args.encode[0]
     writeFile = args.encode[1]
-    clexEnc.clexEnc(readFile, writeFile)
+    encode.txtEncode(readFile, writeFile)
 elif args.decode:
     readFile = args.decode[0]
     writeFile = args.decode[1]
-    clexDec.clexDec(readFile, writeFile)
+    decode.txtDecode(readFile, writeFile)
 if len(sys.argv)==1:
     parser.print_help(sys.stderr)
     sys.exit()

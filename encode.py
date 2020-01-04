@@ -1,6 +1,6 @@
 import base64
 
-def clexEnc(readFile, writeFile):
+def txtEncode(readFile, writeFile):
     with open(readFile, 'rb') as inFile:
         editStr = base64.b64encode(inFile.read())
     with open(writeFile, 'wb') as outFile:
