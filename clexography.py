@@ -9,10 +9,10 @@ version = '2.0'
 name = 'clexography'
 usage = name+' '+' '+version
 
-#command line arguments
+# command line arguments
 
 class argParser(argparse.ArgumentParser):
-    def parseError(self, message):
+    def parseError(self, message):                                          # if user specifies incorrect argument, program prints help screen
         sys.stderr.write('ERROR: %s\n' % message)
         self.print_help()
         sys.exit
@@ -20,8 +20,8 @@ class argParser(argparse.ArgumentParser):
 parser = argParser()
 parser.add_argument("-v", "--version", help="show %(prog)s version", action="store_true")
 actionGroup = parser.add_mutually_exclusive_group()
-actionGroup.add_argument("-e", "--encode", help="encode image", nargs=2)    #encode argument takes 2 actions (read write)
-actionGroup.add_argument("-d", "--decode", help="decode image", nargs=2)    #decode argument takes 2 actions (read write)
+actionGroup.add_argument("-e", "--encode", help="encode image", nargs=2)    # encode argument takes 2 actions (read write)
+actionGroup.add_argument("-d", "--decode", help="decode image", nargs=2)    # decode argument takes 2 actions (read write)
 
 args = parser.parse_args()
 
@@ -35,6 +35,7 @@ elif args.decode:
     readFile = args.decode[0]
     writeFile = args.decode[1]
     decode.txtDecode(readFile, writeFile)
-if len(sys.argv)==1:
+if len(sys.argv)==1:                                                        # if no arguments are specified, program prints help screen
+    print('No arguments specified. Printing help screen...\n')
     parser.print_help(sys.stderr)
     sys.exit()
