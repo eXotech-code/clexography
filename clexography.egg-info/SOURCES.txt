@@ -1,6 +1,0 @@
-README.md
-setup.py
-clexography.egg-info/PKG-INFO
-clexography.egg-info/SOURCES.txt
-clexography.egg-info/dependency_links.txt
-clexography.egg-info/top_level.txt
