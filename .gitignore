@@ -1,2 +1,10 @@
 # python cache folder
 __pycache__/
+
+# image files
+*.jpg
+*.png
+*.tiff
+
+# text files
+*.txt
