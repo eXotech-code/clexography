@@ -17,8 +17,6 @@ To use clexography you need to have Python3 installed.
 
 There is no need for any additional dependencies.
 
-Inside "standalone converters" folder you will also find two converter scripts that you can launch independently from the rest of the code.
-
 ###### Python3 intallation
 [It's right here!](https://wiki.python.org/moin/BeginnersGuide/Download)
 
