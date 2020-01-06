@@ -1,5 +1,4 @@
 # extension checker
-
 def addExt(sys, writeFile):
     extChoice = input('Do you want to save this file with no extension? (Y/n): ').lower()
     if extChoice in ['n', 'no']:
@@ -10,7 +9,7 @@ def addExt(sys, writeFile):
         writeFile = writeFile + ext
         return writeFile                # writeFile with extension
     else:
-        return writeFile
+        return writeFile                # If user wants to save file with no extension, extension checker returns unchanged writeFile string
 
 def extCheck(sys, writeFile):
     if not '.' in writeFile:
