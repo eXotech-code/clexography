@@ -19,10 +19,10 @@ class argParser(argparse.ArgumentParser):
 # command line arguments
 parser = argParser()
 parser.add_argument('-v', '--version', help='show %(prog)s version', action='store_true')
-parser.add_argument('--nocheck', help='omit extension checker', action='store_false')       # --nocheck is an argument to omit extension checking
 actionGroup = parser.add_mutually_exclusive_group()
-actionGroup.add_argument('-e', '--encode', help='encode image', nargs=2)                    # encode argument takes 2 actions (for readFile and writeFile)
-actionGroup.add_argument('-d', '--decode', help='decode image', nargs=2)                    # decode argument takes 2 actions (for readFile and writeFile)
+actionGroup.add_argument('-e', '--encode', help='encode image', nargs=2)                                # encode argument takes 2 actions (for readFile and writeFile)
+actionGroup.add_argument('-d', '--decode', help='decode image', nargs=2)                                # decode argument takes 2 actions (for readFile and writeFile)
+parser.add_argument('--nocheck', help='omit extension checker', action='store_false')             # --nocheck is an argument to omit extension checking
 
 args = parser.parse_args()
 
