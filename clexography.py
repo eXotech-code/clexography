@@ -18,10 +18,11 @@ class argParser(argparse.ArgumentParser):
 
 # command line arguments
 parser = argParser()
-parser.add_argument("-v", "--version", help="show %(prog)s version", action="store_true")
+parser.add_argument('-v', '--version', help='show %(prog)s version', action='store_true')
 actionGroup = parser.add_mutually_exclusive_group()
-actionGroup.add_argument("-e", "--encode", help="encode image", nargs=2)        # encode argument takes 2 actions (for readFile and writeFile)
-actionGroup.add_argument("-d", "--decode", help="decode image", nargs=2)        # decode argument takes 2 actions (for readFile and writeFile)
+actionGroup.add_argument('-e', '--encode', help='encode image', nargs=2)                                # encode argument takes 2 actions (for readFile and writeFile)
+actionGroup.add_argument('-d', '--decode', help='decode image', nargs=2)                                # decode argument takes 2 actions (for readFile and writeFile)
+parser.add_argument('--nocheck', help='omit extension checker', action='store_true')             # --nocheck is an argument to omit extension checking
 
 args = parser.parse_args()
 
@@ -31,12 +32,16 @@ elif args.encode:
     readFile = args.encode[0]
     writeFile = args.encode[1]
     # writeFile path first runs through extension checker
-    fn.txtEncode(base64, readFile, fn.extCheck(sys, writeFile))
+    if not args.nocheck:    # unless --nocheck is specified
+        fn.extCheck(sys, writeFile)
+    fn.txtEncode(base64, readFile, writeFile)
 elif args.decode:
     readFile = args.decode[0]
     writeFile = args.decode[1]
     # writeFile path first runs through extension checker
-    fn.txtDecode(base64, readFile, fn.extCheck(sys, writeFile))
+    if not args.nocheck:    # unless --nocheck is specified
+        fn.extCheck(sys, writeFile)
+    fn.txtDecode(base64, readFile, writeFile)
 
 # if no arguments are specified, program prints help screen
 if len(sys.argv)==1:
