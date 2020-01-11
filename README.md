@@ -23,7 +23,8 @@ Just clone the repo, open it in terminal and type in:
 
 `sudo pip install ./dist/clexography-0.2-py3-none-any.whl`
 
-Or if you want the easier way. Grab one of our newest binaries and run on it:
+Or if you want the easier way. Grab one of our newest [binaries](https://github.com/eXotech-code/clexography/releases) and run on it:
+
 `sudo pip install clexography-0.2-py3-none-any.whl`
 
 ###### Python3 intallation
