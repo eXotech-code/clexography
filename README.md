@@ -17,7 +17,14 @@ To use clexography you need to have Python3 installed.
 
 There is no need for any additional dependencies.
 
-Just clone the repo and open it in terminal.
+Just clone the repo, open it in terminal and type in:
+
+`python3 setup.py sdist bdist wheel`
+
+`sudo pip install ./dist/clexography-0.2-py3-none-any.whl`
+
+Or if you want the easier way. Grab one of our newest binaries and run on it:
+`sudo pip install clexography-0.2-py3-none-any.whl`
 
 ###### Python3 intallation
 [It's right here!](https://wiki.python.org/moin/BeginnersGuide/Download)
@@ -26,10 +33,10 @@ Just clone the repo and open it in terminal.
 Run by typing in the console
 
 To generate text from image file:
-`./clexography.py -e path-to-the-image-file.jpg path-to-save-text-file.txt`
+`./clexography -e path-to-the-image-file.jpg path-to-save-text-file.txt`
 
 To decode image from text file:
-`./clexography.py -d path-to-the-text-file.txt path-to-save-image-file.jpg`
+`./clexography -d path-to-the-text-file.txt path-to-save-image-file.jpg`
 
 ##### You can do whatever you want with this code.
 
