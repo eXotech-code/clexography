@@ -17,7 +17,7 @@ To use clexography you need to have Python3 installed.
 
 There is no need for any additional dependencies.
 
-Inside "standalone converters" folder you will also find two converter scripts that you can launch independently from the rest of the code.
+Just clone the repo and open it in terminal.
 
 ###### Python3 intallation
 [It's right here!](https://wiki.python.org/moin/BeginnersGuide/Download)
@@ -25,7 +25,11 @@ Inside "standalone converters" folder you will also find two converter scripts t
 #### Running
 Run by typing in the console
 
-`path-to-clexography-repo/clexography.py`
+To generate text from image file:
+`./clexography.py -e path-to-the-image-file.jpg path-to-save-text-file.txt`
+
+To decode image from text file:
+`./clexography.py -d path-to-the-text-file.txt path-to-save-image-file.jpg`
 
 ##### You can do whatever you want with this code.
 

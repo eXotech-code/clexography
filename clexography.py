@@ -1,24 +1,50 @@
 #!/usr/bin/env python3
 
-# imports
-import imgconv
-import txtconv
+import sys
+import argparse
+import base64
+import functions as fn
 
-def main():
-    # select img >> txt or txt >> img
-    print('Welcome to Clexography!')
-    selectAction = input('Do you want to encode (image >> text) or decode (text >> image)? (e/d): ').lower()
-    if selectAction in ['e', 'encode']:
-        imgconv.imageText()
-    elif selectAction in ['d', 'decode']:
-        txtconv.textImage()
-    elif (selectAction == 'exit'):
-        print('Exiting...')
-    else:
-        rerun = input('ERROR: function"' + selectAction + '"is not a valid function. Do you want to run again? (Y/n): ').lower()
-        if rerun in ['y', 'yes']:
-            main()
-        else:
-            print('Exiting...')
+version = '2.0'
+name = 'clexography'
+usage = name+' '+' '+version
 
-main()
+# if user specifies incorrect argument, program prints help screen
+class argParser(argparse.ArgumentParser):
+    def parseError(self, message):
+        sys.stderr.write('ERROR: %s\n' % message)
+        self.print_help()
+        sys.exit
+
+# command line arguments
+parser = argParser()
+parser.add_argument('-v', '--version', help='show %(prog)s version', action='store_true')
+actionGroup = parser.add_mutually_exclusive_group()
+actionGroup.add_argument('-e', '--encode', help='encode image', nargs=2)                                # encode argument takes 2 actions (for readFile and writeFile)
+actionGroup.add_argument('-d', '--decode', help='decode image', nargs=2)                                # decode argument takes 2 actions (for readFile and writeFile)
+parser.add_argument('--nocheck', help='omit extension checker', action='store_true')             # --nocheck is an argument to omit extension checking
+
+args = parser.parse_args()
+
+if args.version:
+    print(version)
+elif args.encode:
+    readFile = args.encode[0]
+    writeFile = args.encode[1]
+    # writeFile path first runs through extension checker
+    if not args.nocheck:    # unless --nocheck is specified
+        fn.extCheck(sys, writeFile)
+    fn.txtEncode(base64, readFile, writeFile)
+elif args.decode:
+    readFile = args.decode[0]
+    writeFile = args.decode[1]
+    # writeFile path first runs through extension checker
+    if not args.nocheck:    # unless --nocheck is specified
+        fn.extCheck(sys, writeFile)
+    fn.txtDecode(base64, readFile, writeFile)
+
+# if no arguments are specified, program prints help screen
+if len(sys.argv)==1:
+    print('No arguments specified. Printing help screen...\n')
+    parser.print_help(sys.stderr)
+    sys.exit()
