@@ -33,14 +33,14 @@ elif args.encode:
     writeFile = args.encode[1]
     # writeFile path first runs through extension checker
     if not args.nocheck:    # unless --nocheck is specified
-        fn.extCheck(sys, writeFile)
+        writeFile = fn.extCheck(sys, writeFile)
     fn.txtEncode(base64, readFile, writeFile)
 elif args.decode:
     readFile = args.decode[0]
     writeFile = args.decode[1]
     # writeFile path first runs through extension checker
     if not args.nocheck:    # unless --nocheck is specified
-        fn.extCheck(sys, writeFile)
+        writeFile = fn.extCheck(sys, writeFile)
     fn.txtDecode(base64, readFile, writeFile)
 
 # if no arguments are specified, program prints help screen
