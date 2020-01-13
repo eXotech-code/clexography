@@ -42,7 +42,7 @@ jobs:
         SLACK_USERNAME: GitHub
         SLACK_ICON: https://www.stickpng.com/assets/images/5847f98fcef1014c0b5e48c0.png
         SLACK_TITLE: Push passed bug checking!
-        SLACK_MESSAGE: 'The latest push to the clexography repo has been checked with pylint and is free of bugs! Your welcome! Beep...'
+        SLACK_MESSAGE: 'The latest push to the clexography repo has been checked with flake8 and is free of bugs! Your welcome! Beep...'
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
     - name: Failed Check - Slack
       if: failure()
@@ -52,18 +52,18 @@ jobs:
         SLACK_COLOR: '#ff0000'
         SLACK_ICON: https://www.stickpng.com/assets/images/5847f98fcef1014c0b5e48c0.png
         SLACK_TITLE: Push didn't pass bug checking.
-        SLACK_MESSAGE: 'The latest push to the clexography repo has been checked with pylint and it has some bugs that are in need of fixing. Sad beep...'
+        SLACK_MESSAGE: 'The latest push to the clexography repo has been checked with flake8 and it has some bugs that are in need of fixing. Sad beep...'
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
     - name: Discord Notification
       env:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
       uses: Ilshidur/action-discord@master
       with:
-        args: 'The latest push to the clexography repo by {{ GITHUB_ACTOR }} to branch ${{ steps.extract_branch.outputs.branch }} has been checked with pylint and is free of bugs! Your welcome! Beep...'
+        args: 'The latest push to the clexography repo by {{ GITHUB_ACTOR }} to branch ${{ steps.extract_branch.outputs.branch }} has been checked with flake8 and is free of bugs! Your welcome! Beep...'
     - name: Failed Check - Discord
       if: failure()
       env:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
       uses: Ilshidur/action-discord@master
       with:
-        args: 'The latest push to the clexography repo by {{ GITHUB_ACTOR }} to branch ${{ steps.extract_branch.outputs.branch }} has been checked with pylint and it has some bugs that are in need of fixing. Sad beep...'
+        args: 'The latest push to the clexography repo by {{ GITHUB_ACTOR }} to branch ${{ steps.extract_branch.outputs.branch }} has been checked with flake8 and it has some bugs that are in need of fixing. Sad beep...'
