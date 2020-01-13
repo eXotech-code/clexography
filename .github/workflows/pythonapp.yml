@@ -30,6 +30,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Check installer for errors
       run: |
+        chmod +x install.sh
         ./install.sh
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@master
