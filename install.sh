@@ -14,7 +14,3 @@ echo Package has been created.
 echo -e "Installing package...\n"
 sudo pip install ./dist/clexography-0.2-py3-none-any.whl
 echo -e "\nClexography has been succesfully installed. Goodbye!"
-
-if grep -q "\nClexography has been succesfully installed. Goodbye!"; then
-    echo ::set-output name=key::passed
-fi
