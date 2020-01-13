@@ -23,9 +23,14 @@ jobs:
         python setup.py sdist bdist_wheel
     - name: Commit packages
       run: |
-        git add dist/*
-        git commit -m "[BOT] Added files for new release."
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "[BOT] Added files for new release." -a
         git push
+    - name: Push packages
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
@@ -34,3 +39,11 @@ jobs:
           - '**.tar.gz' 
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@master
+      env:
+        SLACK_USERNAME: GitHub
+        SLACK_ICON: https://www.stickpng.com/assets/images/5847f98fcef1014c0b5e48c0.png
+        SLACK_TITLE: Packages for the new release have been created!
+        SLACK_MESSAGE: 'Since you are busy preparing for the new release, I have created all of the packages for you. You can find them in the master branch. Beep...'
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
