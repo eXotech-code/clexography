@@ -55,7 +55,7 @@ jobs:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
       uses: Ilshidur/action-discord@master
       with:
-        args: 'The latest push to the clexography repo has been checked with pylint and is free of bugs! Your welcome! Beep...'
+        args: 'Triggered on: {{ EVENT_PAYLOAD.push.id }} The latest push to the clexography repo has been checked with pylint and is free of bugs! Your welcome! Beep...'
     - name: Failed Check - Discord
       if: failure()
       env:
