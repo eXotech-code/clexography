@@ -40,7 +40,7 @@ jobs:
         SLACK_TITLE: Push passed bug checking!
         SLACK_MESSAGE: 'The latest push to the clexography repo has been checked with pylint and is free of bugs! Your welcome! Beep...'
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-    - name: Failed Check
+    - name: Failed Check - Slack
       if: failure()
       uses: rtCamp/action-slack-notify@master
       env:
@@ -50,3 +50,16 @@ jobs:
         SLACK_TITLE: Push didn't pass bug checking.
         SLACK_MESSAGE: 'The latest push to the clexography repo has been checked with pylint and it has some bugs that are in need of fixing. Sad beep...'
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+    - name: Discord Notification
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      uses: Ilshidur/action-discord@master
+      with:
+        args: 'The latest push to the clexography repo has been checked with pylint and is free of bugs! Your welcome! Beep...'
+    - name: Failed Check - Discord
+      if: failure()
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      uses: Ilshidur/action-discord@master
+      with:
+        args: 'The latest push to the clexography repo has been checked with pylint and it has some bugs that are in need of fixing. Sad beep...'
