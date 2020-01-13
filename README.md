@@ -1,5 +1,6 @@
 # clexography
-[![bug checker](https://github.com/eXotech-code/clexography/workflows/Python%20application/badge.svg)
+[bug checker](https://github.com/eXotech-code/clexography/workflows/Python%20application/badge.svg)
+
 Clexography is a tool used to convert image files to and from text.
 
 It can be used for example as a way of sending images over IRC chat or anywhere else, where you cannot send images normally.
