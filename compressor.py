@@ -1,7 +1,5 @@
 # compression function
-def compress(startFile):
-    with open(startFile, 'r') as textFile:                # program opens startFile as a string
-        startStr = textFile.read()
+def compress(startStr):
 
     print('startStr:\n' + startStr[0:100])
 
@@ -22,12 +20,13 @@ def compress(startFile):
         repeats += str(count)
 
     print('repeats:\n' + repeats[0:100])
+    return repeats
 
-    startFile = 'compressed-' + startFile
-
-    with open(startFile, 'w') as outFile:
-        outFile.write(repeats)
-    print('Text file saved as ' + startFile)
+def decompress(repeats):
+    if any(char.isdigit() for char in repeats):
+        print('Yeah boy')
+    else:
+        return repeats
     
-startFile = input('[DEV] Input startFile: ')
-compress(startFile)
+startStr = input('[DEV] Input startStr: ')
+decompress(compress(startStr))
