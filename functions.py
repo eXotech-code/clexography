@@ -20,6 +20,21 @@ def extCheck(sys, writeFile):
     else:
         return writeFile
 
+# file duplicate finder
+def duplicateFinder(os, writeFile):
+    if os.path.isfile(writeFile):
+        filename, extension = os.path.splitext(writeFile)   # get extension
+        writeFile = writeFile.replace(extension, '')
+        writeFile = filename + '1'                          # add a number to filename
+        # if that file exists as well iterate through all possible numbers
+        # and if that name doesn't exist add that number to it and add it to writeFile.
+        while os.path.isfile(writeFile):
+            number = int(writeFile[-1]) + 1
+            writeFile = writeFile.replace(writeFile[-1], str(number)) + extension
+        return writeFile
+    else:
+        return writeFile
+
 # encoder
 def txtEncode(base64, readFile, writeFile):
     with open(readFile, 'rb') as inFile:
