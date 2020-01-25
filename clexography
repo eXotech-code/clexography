@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
+import os
 import argparse
 import base64
 import functions as fn
@@ -34,6 +35,7 @@ elif args.encode:
     # writeFile path first runs through extension checker
     if not args.nocheck:    # unless --nocheck is specified
         writeFile = fn.extCheck(sys, writeFile)
+    writeFile = fn.duplicateFinder(os, writeFile)
     fn.txtEncode(base64, readFile, writeFile)
 elif args.decode:
     readFile = args.decode[0]
@@ -41,6 +43,7 @@ elif args.decode:
     # writeFile path first runs through extension checker
     if not args.nocheck:    # unless --nocheck is specified
         writeFile = fn.extCheck(sys, writeFile)
+    writeFile = fn.duplicateFinder(os, writeFile)
     fn.txtDecode(base64, readFile, writeFile)
 
 # if no arguments are specified, program prints help screen
