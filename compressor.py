@@ -1,8 +1,7 @@
-# compression function
+import re
+
+# compressor
 def compress(startStr):
-
-    print('startStr:\n' + startStr[0:100])
-
     repeats = ''
     count = 1
 
@@ -22,11 +21,14 @@ def compress(startStr):
     print('repeats:\n' + repeats[0:100])
     return repeats
 
+# decompressor
 def decompress(repeats):
-    if any(char.isdigit() for char in repeats):
-        print('Yeah boy')
-    else:
-        return repeats
+    while any(char.isdigit() for char in repeats):
+        match = re.match(r"([a-z]+)([0-9]+)", repeats, re.I)
+        groupReplace = repeats.replace(match.group(1) + match.group(2), '')
+        print(groupReplace)
+        repeats = match.group(1) * int(match.group(2)) + groupReplace
+        print(repeats)
     
 startStr = input('[DEV] Input startStr: ')
 decompress(compress(startStr))
