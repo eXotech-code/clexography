@@ -28,9 +28,10 @@ def duplicateFinder(os, writeFile):
         writeFile = filename + '1'                          # add a number to filename
         # if that file exists as well iterate through all possible numbers
         # and if that name doesn't exist add that number to it and add it to writeFile.
-        while os.path.isfile(writeFile):
+        while os.path.isfile(writeFile + extension):
             number = int(writeFile[-1]) + 1
-            writeFile = writeFile.replace(writeFile[-1], str(number)) + extension
+            writeFile = writeFile.replace(writeFile[-1], str(number))
+        writeFile = writeFile + extension
         return writeFile
     else:
         return writeFile
