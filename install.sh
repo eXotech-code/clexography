@@ -10,7 +10,7 @@ install() {
     python3 setup.py sdist bdist_wheel
     echo Package has been created.
     echo -e "Installing package...\n"
-    sudo pip3 install ./dist/clexography-0.2-py3-none-any.whl
+    sudo pip3 install ./dist/clexography-0.3-py3-none-any.whl
     echo -e "\nClexography has been succesfully installed. Goodbye!"
 }
 
