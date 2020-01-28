@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name = 'clexography',
-    version = 'v0.3',
+    version = 'v0.4',
     scripts = ['clexography'] ,
     author = "clexography",
     author_email = "exotech.code@gmail.com",
