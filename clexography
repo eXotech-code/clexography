@@ -35,7 +35,8 @@ elif args.encode:
     # writeFile path first runs through extension checker
     if not args.nocheck:    # unless --nocheck is specified
         writeFile = fn.extCheck(sys, writeFile)
-    writeFile = fn.duplicateFinder(os, writeFile)
+        # then writeFile path runs through file duplicate finder
+        writeFile = fn.duplicateFinder(os, writeFile)
     fn.txtEncode(base64, readFile, writeFile)
 elif args.decode:
     readFile = args.decode[0]
@@ -43,7 +44,8 @@ elif args.decode:
     # writeFile path first runs through extension checker
     if not args.nocheck:    # unless --nocheck is specified
         writeFile = fn.extCheck(sys, writeFile)
-    writeFile = fn.duplicateFinder(os, writeFile)
+        # then writeFile path runs through file duplicate finder
+        writeFile = fn.duplicateFinder(os, writeFile)
     fn.txtDecode(base64, readFile, writeFile)
 
 # if no arguments are specified, program prints help screen

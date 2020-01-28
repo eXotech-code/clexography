@@ -22,6 +22,7 @@ def extCheck(sys, writeFile):
 
 # file duplicate finder
 def duplicateFinder(os, writeFile):
+    oldPath = writeFile
     if os.path.isfile(writeFile):
         filename, extension = os.path.splitext(writeFile)   # get extension
         writeFile = writeFile.replace(extension, '')
@@ -32,6 +33,7 @@ def duplicateFinder(os, writeFile):
             number = int(writeFile[-1]) + 1
             writeFile = writeFile.replace(writeFile[-1], str(number))
         writeFile = writeFile + extension
+        print('The file with the name "' + oldPath + '" exists. It will be saved as "' + writeFile + '" instead.')
         return writeFile
     else:
         return writeFile
