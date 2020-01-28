@@ -1,0 +1,21 @@
+name: Create a new branch
+
+on: create
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
+    - name: Discord Notification
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      uses: Ilshidur/action-discord@master
+      with:
+        args: 'Hell yeah boi! {{ GITHUB_ACTOR }} created a new branch -  ${{ steps.extract_branch.outputs.branch }}. Beep...'
