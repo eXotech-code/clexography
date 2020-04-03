@@ -8,7 +8,7 @@ It can be used for example as a way of sending images over IRC chat or anywhere 
 ### Branches
 [master](https://github.com/eXotech-code/clexography/tree/master) -  Main production branch
 
-[testing](https://github.com/eXotech-code/clexography/tree/testing) - This branch always lags behind master a little bit. It contains finished code not yet ready to merge with master (merges occur every week)
+[testing](https://github.com/eXotech-code/clexography/tree/testing) - This branch always lags behind master a little bit. It contains finished code not yet ready to merge with master
 
 [feature](https://github.com/eXotech-code/clexography/tree/feature) - Branch with new, untested features
 
